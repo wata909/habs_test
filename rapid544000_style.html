@@ -43,9 +43,19 @@ var geojsonMarkerOptions = {
 
 // add geojson from file
 var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84_test.geojson",{
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
-    });
+		style: function (feature) 
+			pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, {
+					radius: 8,
+					fillColor: "#ff7800",
+					color: "#000",
+					weight: 1,
+					opacity: 1,
+					fillOpacity: 0.8
+				});
+			}
+		}
+    );
 
 // get color depending on population density value
 		function getColor(d) {
@@ -66,7 +76,7 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rap
 				color: 'white',
 				dashArray: '3',
 				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.code)
+				fillColor: 
 			};
 		}
 
