@@ -39,8 +39,10 @@ var geojsonFeature = [{
   }
 }];
 
-var rapidgj = new L.geoJson(rapidData);
-//var rapidgj = new L.geoJson(geojsonFeature);
+var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson");
+
+// var rapidgj = new L.geoJson(rapidData);
+// var rapidgj = new L.geoJson(geojsonFeature);
 
 // get color depending on population density value
 		function getColor(d) {
