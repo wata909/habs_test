@@ -28,18 +28,33 @@ gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
               attribution: "<a href='http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html' target='_blank'>GSI</a>"
               });
 
+var geojsonFeature = [{
+  "type": "Feature",
+  "geometry": {
+      "type": "Point",
+      "coordinates": [139.87, 35.77]
+  }
+}];
+
+var rapidgj = L.geoJson(geojsonFeature);
+
 var map = L.map('map', 
           {
           center: [35.76845, 139.87201],
           zoom: 9,
           layers: [habs, gsi_tile]});
 
-var baseLayers = {
+var baseMaps = {
     "GSI standard Tile": gsi_tile,
     "The Rapid Survay Maps": habs
     };
+    
+var overlayMaps = {
+    "RapidGJ": rapidgj
+    };
 
-L.control.layers(baseLayers).addTo(map);
+L.control.layers(overlayMaps, baseMaps).addTo(map);
+
 
 </script>
 </body>
