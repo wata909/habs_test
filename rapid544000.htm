@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GSI Tiles on Leaflet</title>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
-<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<title>HABS land use database test  site</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 
 <style>
   body {padding: 0; margin: 0}
@@ -18,11 +18,13 @@
 <script>
 var map = L.map('map');
 
-L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
-  attribution: "<a href='http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html' target='_blank'>国土地理院</a>"
+L.tileLayer('http://habs.dc.affrc.go.jp/rapid16/{z}/{x}/{y}.png',
+ {
+  attribution: "<a href='http://habs.dc.affrc.go.jp/' target='_blank'>Historical Agro-Environment Browsing System</a>",
+  tms: true
 }).addTo(map);
 
-map.setView([35.3622222, 138.7313889], 5);
+map.setView([35.76845, 139.87201], 9);
 </script>
 </body>
 </html>
