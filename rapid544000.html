@@ -39,7 +39,8 @@ var geojsonFeature = [{
   }
 }];
 
-var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84_test.geojson");
+// add geojson from file
+// var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84_test.geojson");
 
 // get color depending on population density value
 		function getColor(d) {
@@ -65,9 +66,11 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rap
 		}
 
 
+var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84_test.geojson",{
+              style: style,
+              onEachFeature: onEachFeature
+              });
 
-// var rapidgj = new L.geoJson(rapidData);
-// var rapidgj = new L.geoJson(geojsonFeature);
 
 var map = L.map('map', 
           {
