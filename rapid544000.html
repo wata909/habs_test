@@ -31,18 +31,8 @@ gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
               attribution: "<a href='http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html' target='_blank'>GSI</a>"
               });
 
-var geojsonFeature = [{
-  "type": "Feature",
-  "geometry": {
-      "type": "Point",
-      "coordinates": [139.87, 35.77]
-  }
-}];
-
-var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84_test.geojson");
-
-// var rapidgj = new L.geoJson(rapidData);
-// var rapidgj = new L.geoJson(geojsonFeature);
+// add geojson layer from file
+// var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84_test.geojson");
 
 var map = L.map('map', 
           {
