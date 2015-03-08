@@ -43,8 +43,9 @@ var geojsonMarkerOptions = {
 
 
 // add geojson from file
-var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84_test.geojson",{
-			pointToLayer: function (feature, latlng) {
+var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84.geojson",{
+			pointToLayer: 
+			function (feature, latlng) {
 				return L.circleMarker(latlng, {
 					radius: 8,
 					fillColor: "#ff7800",
@@ -68,18 +69,6 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rap
 			       d = 7 ? '#FED976' :
 			               '#FFEDA0';
 		}
-
-		function style(feature) {
-			return {
-				weight: 2,
-				opacity: 1,
-				color: 'white',
-				dashArray: '3',
-				fillOpacity: 0.7,
-				fillColor: 'red'
-			};
-		}
-
 
 var map = L.map('map', 
           {
