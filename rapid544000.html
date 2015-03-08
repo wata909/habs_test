@@ -5,6 +5,9 @@
 <title>HABS land use database test  site</title>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="javascript/leaflet.ajax.min.js"></script>
+<script src="geojson/rapid544000_wgs84_test.js" type="text/javascript"></script>
+
 
 <style>
   body {padding: 0; margin: 0}
@@ -36,12 +39,37 @@ var geojsonFeature = [{
   }
 }];
 
-var rapidgj = L.geoJson(geojsonFeature);
+var rapidgj = new L.geoJson(rapidData);
+//var rapidgj = new L.geoJson(geojsonFeature);
+
+// get color depending on population density value
+		function getColor(d) {
+			return d = 1 ? '#800026' :
+			       d = 2  ? '#BD0026' :
+			       d = 3  ? '#E31A1C' :
+			       d = 4  ? '#FC4E2A' :
+			       d = 5   ? '#FD8D3C' :
+			       d = 6   ? '#FEB24C' :
+			       d = 7   ? '#FED976' :
+			                  '#FFEDA0';
+		}
+
+		function style(feature) {
+			return {
+				weight: 2,
+				opacity: 1,
+				color: 'white',
+				dashArray: '3',
+				fillOpacity: 0.7,
+				fillColor: getColor(feature.properties.code)
+			};
+		}
+
 
 var map = L.map('map', 
           {
-          center: [35.76845, 139.87201],
-          zoom: 9,
+          center: [36.05, 140.1],
+          zoom: 13,
           layers: [habs, gsi_tile]});
 
 var baseMaps = {
