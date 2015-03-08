@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HABS land use database test  site</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<style>
+  body {padding: 0; margin: 0}
+  html, body, #map {height: 100%; width: 100%;}
+  .leaflet-container {background: #fff;}
+</style>
+</head>
+
+<body>
+<div id="map">
+<script>
+
+var habs=L.tileLayer('http://habs.dc.affrc.go.jp/rapid16/{z}/{x}/{y}.png',
+ {
+  attribution: "<a href='http://habs.dc.affrc.go.jp/' target='_blank'>Historical Agro-Environment Browsing System</a>",
+  tms: true
+}),
+
+gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', 
+              {
+              attribution: "<a href='http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html' target='_blank'>GSI</a>"
+              });
+
+var map = L.map('map', 
+          {
+          center: [35.76845, 139.87201],
+          zoom: 9,
+          layers: [habs, gsi_tile]});
+
+var baseLayers = {
+    "GSI standard Tile": gsi_tile,
+    "The Rapid Survay Maps": habs
+    };
+
+L.control.layers(baseLayers).addTo(map);
+
+</script>
+</body>
+</html>
