@@ -39,26 +39,24 @@ var geojsonFeature = [{
   }
 }];
 
-var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson");
-
 // var rapidgj = new L.geoJson(rapidData);
 // var rapidgj = new L.geoJson(geojsonFeature);
 
 // get color depending on population density value
 		function getColor(d) {
 			return d = 1 ? '#800026' :
-			       d = 2  ? '#BD0026' :
-			       d = 3  ? '#E31A1C' :
-			       d = 4  ? '#FC4E2A' :
-			       d = 5   ? '#FD8D3C' :
-			       d = 6   ? '#FEB24C' :
-			       d = 7   ? '#FED976' :
-			                  '#FFEDA0';
+			       d = 2 ? '#BD0026' :
+			       d = 3 ? '#E31A1C' :
+			       d = 4 ? '#FC4E2A' :
+			       d = 5 ? '#FD8D3C' :
+			       d = 6 ? '#FEB24C' :
+			       d = 7 ? '#FED976' :
+			               '#FFEDA0';
 		}
 
 		function style(feature) {
 			return {
-				weight: 2,
+				radius:3px,
 				opacity: 1,
 				color: 'white',
 				dashArray: '3',
@@ -66,6 +64,11 @@ var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson");
 				fillColor: getColor(feature.properties.code)
 			};
 		}
+
+var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson",{
+              style: style,
+              onEachFeature: onEachFeature
+              });
 
 
 var map = L.map('map', 
