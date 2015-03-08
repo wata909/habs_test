@@ -44,30 +44,6 @@ var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson");
 // var rapidgj = new L.geoJson(rapidData);
 // var rapidgj = new L.geoJson(geojsonFeature);
 
-// get color depending on population density value
-		function getColor(d) {
-			return d = 1 ? '#800026' :
-			       d = 2 ? '#BD0026' :
-			       d = 3 ? '#E31A1C' :
-			       d = 4 ? '#FC4E2A' :
-			       d = 5 ? '#FD8D3C' :
-			       d = 6 ? '#FEB24C' :
-			       d = 7 ? '#FED976' :
-			               '#FFEDA0';
-		}
-
-		function style(feature) {
-			return {
-				weight: 2,
-				opacity: 1,
-				color: 'white',
-				dashArray: '3',
-				fillOpacity: 0.7,
-				fillColor: getColor(feature.properties.code)
-			};
-		}
-
-
 var map = L.map('map', 
           {
           center: [36.05, 140.1],
