@@ -39,6 +39,8 @@ var geojsonFeature = [{
   }
 }];
 
+var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson");
+
 // var rapidgj = new L.geoJson(rapidData);
 // var rapidgj = new L.geoJson(geojsonFeature);
 
@@ -56,7 +58,7 @@ var geojsonFeature = [{
 
 		function style(feature) {
 			return {
-				radius:3px,
+				weight: 2,
 				opacity: 1,
 				color: 'white',
 				dashArray: '3',
@@ -64,8 +66,6 @@ var geojsonFeature = [{
 				fillColor: getColor(feature.properties.code)
 			};
 		}
-
-var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson");
 
 
 var map = L.map('map', 
