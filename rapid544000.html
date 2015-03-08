@@ -65,10 +65,7 @@ var geojsonFeature = [{
 			};
 		}
 
-var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson",{
-              style: style,
-              onEachFeature: onEachFeature
-              });
+var rapidgj = new L.GeoJSON.AJAX("geojson/rapid544000_wgs84_test.geojson");
 
 
 var map = L.map('map', 
