@@ -71,14 +71,15 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rap
 					else
 					if (feature.properties.CODE==12){
 					fColor="#aaaa7f";}
-				return L.circleMarker(latlng, {
-					radius: 5,
-					fillColor: fColor,
-					weight: 1,
-					opacity: 0,
-					fillOpacity: 0.5,
-				}
-				);
+				var cMarker = L.circleMarker(latlng, {
+							radius: 5,
+							fillColor: fColor,
+							weight: 1,
+							opacity: 0,
+							fillOpacity: 0.2
+							}).bindPopup("<b>Land use:</b> "+feature.properties.CODE+"<br><b>MESH2RE:</b> "+feature.properties.MESH2R_ID);
+				
+				return cMarker;
 				}
 			}
 	);
