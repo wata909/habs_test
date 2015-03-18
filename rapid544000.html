@@ -36,10 +36,10 @@ gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
 var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84.geojson",{
 			pointToLayer: function (feature, latlng) {
 				var fColor;
-					if (feature.properties.code==1){
-					fColor="Red";}
+					if (feature.properties.CODE==1){
+					fColor="#0ff";}
 					else
-					if (feature.properties.code==2 ){
+					if (feature.properties.CODE==2){
 					fColor="Green";}
 				return L.circleMarker(latlng, {
 					radius: 5,
