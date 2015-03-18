@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="javascripts/leaflet.ajax.js"></script>
-<script src="geojson/rapid544000_wgs84_test.js" type="text/javascript"></script>
 
 
 <style>
@@ -33,16 +32,10 @@ gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
               });
 
 // add geojson from file
-var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000_wgs84.geojson",{
+var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rapid544000.geojson",{
 				pointToLayer: function (feature, latlng) {
 				var fColor;
 					if (feature.properties.CODE==1){
-<<<<<<< HEAD
-					fColor="#0ff";}
-					else
-					if (feature.properties.CODE==2){
-					fColor="Green";}
-=======
 					fColor="#FFFF00";}
 					else
 					if (feature.properties.CODE==2 ){
@@ -77,15 +70,15 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/geojson/rap
 					else
 					if (feature.properties.CODE==12){
 					fColor="#aaaa7f";}
->>>>>>> edc66f167db965f798275a0abea17824810dad4b
-				return L.circleMarker(latlng, {
-					radius: 5,
-					fillColor: fColor,
-					weight: 1,
-					opacity: 0,
-					fillOpacity: 0.5,
-				}
-				);
+				var cMarker = L.circleMarker(latlng, {
+							radius: 5,
+							fillColor: fColor,
+							weight: 1,
+							opacity: 0,
+							fillOpacity: 0.5
+							}).bindPopup("<b>Land use:</b> "+feature.properties.CODE+"<br><b>ID:</b> "+feature.properties.ID);
+				
+				return cMarker;
 				}
 			}
 	);
