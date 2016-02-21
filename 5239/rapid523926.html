@@ -35,40 +35,40 @@ gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
 var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5239/geojson/rapid523926.geojson",{
 				pointToLayer: function (feature, latlng) {
 				var fColor;
-					if (feature.properties.CODE==1){
+					if (feature.properties.code==1){
 					fColor="#FFFF00";}
 					else
-					if (feature.properties.CODE==2 ){
+					if (feature.properties.code==2 ){
 					fColor="#aa5500";}
 					else
-					if (feature.properties.CODE==3 ){
+					if (feature.properties.code==3 ){
 					fColor="#ffaaff";}
 					else
-					if (feature.properties.CODE==4 ){
+					if (feature.properties.code==4 ){
 					fColor="#00aa00";}
 					else
-					if (feature.properties.CODE==5 ){
+					if (feature.properties.code==5 ){
 					fColor="#ffaa00";}
 					else
-					if (feature.properties.CODE==6 ){
+					if (feature.properties.code==6 ){
 					fColor="#c8c8c8";}
 					else
-					if (feature.properties.CODE==7 ){
+					if (feature.properties.code==7 ){
 					fColor="#550000";}
 					else
-					if (feature.properties.CODE==8 ){
+					if (feature.properties.code==8 ){
 					fColor="#aaaa7f";}
 					else
-					if (feature.properties.CODE==9 ){
+					if (feature.properties.code==9 ){
 					fColor="#00ffff";}
 					else
-					if (feature.properties.CODE==10 ){
+					if (feature.properties.code==10 ){
 					fColor="#0000FF";}
 					else
-					if (feature.properties.CODE==11 ){
+					if (feature.properties.code==11 ){
 					fColor="#005500";}
 					else
-					if (feature.properties.CODE==12){
+					if (feature.properties.code==12){
 					fColor="#aaaa7f";}
 				var cMarker = L.circleMarker(latlng, {
 							radius: 5,
@@ -76,7 +76,7 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5239/geojso
 							weight: 1,
 							opacity: 0,
 							fillOpacity: 0.5
-							}).bindPopup("<b>ID:</b> "+feature.properties.ID+"<br><b>Land use:</b> "+feature.properties.CODE);
+							}).bindPopup("<b>ID:</b> "+feature.properties.id"<br><b>Land use:</b> "+feature.properties.code);
 				
 				return cMarker;
 				}
