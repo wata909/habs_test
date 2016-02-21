@@ -1,0 +1,108 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HABS land use database test  site</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="javascripts/leaflet.ajax.js"></script>
+
+
+<style>
+  body {padding: 0; margin: 0}
+  html, body, #map {height: 100%; width: 100%;}
+  .leaflet-container {background: #fff;}
+</style>
+</head>
+
+<body>
+<div id="map">
+<script>
+
+var habs=L.tileLayer('http://habs.dc.affrc.go.jp/rapid16/{z}/{x}/{y}.png',
+ {
+  attribution: "<a href='http://habs.dc.affrc.go.jp/' target='_blank'>Historical Agro-Environment Browsing System</a>, <a href='https://creativecommons.org/licenses/by/2.1/jp/'  target='_blank'>CC BY 2.1 jp</a>" ,
+  tms: true
+}),
+
+gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', 
+              {
+              attribution: "<a href='http://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html' target='_blank'>GSI</a>"
+              });
+
+// add geojson from file
+var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5339/geojson/rapid533966.geojson",{
+				pointToLayer: function (feature, latlng) {
+				var fColor;
+					if (feature.properties.code==1){
+					fColor="#FFFF00";}
+					else
+					if (feature.properties.code==2 ){
+					fColor="#aa5500";}
+					else
+					if (feature.properties.code==3 ){
+					fColor="#ffaaff";}
+					else
+					if (feature.properties.code==4 ){
+					fColor="#00aa00";}
+					else
+					if (feature.properties.code==5 ){
+					fColor="#ffaa00";}
+					else
+					if (feature.properties.code==6 ){
+					fColor="#c8c8c8";}
+					else
+					if (feature.properties.code==7 ){
+					fColor="#550000";}
+					else
+					if (feature.properties.code==8 ){
+					fColor="#aaaa7f";}
+					else
+					if (feature.properties.code==9 ){
+					fColor="#00ffff";}
+					else
+					if (feature.properties.code==10 ){
+					fColor="#0000FF";}
+					else
+					if (feature.properties.code==11 ){
+					fColor="#005500";}
+					else
+					if (feature.properties.code==12){
+					fColor="#aaaa7f";}
+				var cMarker = L.circleMarker(latlng, {
+							radius: 5,
+							fillColor: fColor,
+							weight: 1,
+							opacity: 0,
+							fillOpacity: 0.5
+							}).bindPopup("<b>ID:</b> "+feature.properties.id+"<br><b>Land use:</b> "+feature.properties.code);
+				
+				return cMarker;
+				}
+			}
+	);
+
+
+var map = L.map('map', 
+          {
+          center: [35.686302, 139.776306],
+          zoom: 9,
+          maxZoom: 16,
+          layers: [habs, gsi_tile]});
+
+var baseMaps = {
+    "GSI standard Tile": gsi_tile,
+    "The Rapid Survay Maps": habs
+    };
+    
+var overlayMaps = {
+    "Rapid Land Use": rapidgj
+    };
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
+</script>
+</body>
+</html>
