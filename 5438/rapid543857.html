@@ -32,7 +32,7 @@ gsi_tile= L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
               });
 
 // add geojson from file
-var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5348/geojson/rapid543857.geojson",{
+var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5438/geojson/rapid543857.geojson",{
 				pointToLayer: function (feature, latlng) {
 				var fColor;
 					if (feature.properties.code==1){
