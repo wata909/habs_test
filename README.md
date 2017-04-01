@@ -12,6 +12,8 @@ http://wata909.github.io/habs_test/5440/rapid544000.html
 
 土地利用とデータの対応表は、[土地利用コード対応表](https://raw.githubusercontent.com/wata909/habs_test/gh-pages/habs_code.csv "土地利用コード対応表")をご参照下さい。  
 
+土地利用が入力されている地点については、ランベルト正角円錐図法(2標準緯線)で100m間隔の点を発生させています。詳細なパラメータについては、[prjファイル](https://raw.githubusercontent.com/wata909/habs_test/gh-pages/habs_LCC.prj "HABC ランベルト正角円錐図法 PRJファイル")または、[proj4パラメータ](https://raw.githubusercontent.com/wata909/habs_test/gh-pages/habs_LCC_proj4.txt "HABC ランベルト正角円錐図法 proj4パラメータ")をご確認ください。
+
 本データのライセンスは、[クリエイティブコモンズ　表示　4.0　国際](https://creativecommons.org/licenses/by/4.0/deed.ja "クリエイティブコモンズ　表示　4.0　国際") となります。
 
 ##注意事項
