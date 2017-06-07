@@ -100,10 +100,11 @@ var overlayMaps = {
     "Rapid Land Use": rapidgj
     };
 
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+
 rapidgj.addTo(map);
 map.fitBounds(rapidgj.getBounds());
 	
-L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
 </script>
