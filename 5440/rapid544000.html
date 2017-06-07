@@ -83,12 +83,13 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5440/geojso
 			}
 	);
 var bounds = rapidgj.getBounds();
-$scope.latLng = bounds.getCenter();
 
 var map = L.map('map', 
           {
-          maxZoom: 16,
-          layers: [gsi_tile,rapidgj]});
+        center: [35.686302, 139.776306],
+        zoom: 9,
+	maxZoom: 16,
+        layers: [gsi_tile,rapidgj]});
 
 var baseMaps = {
     "GSI standard Tile": gsi_tile,
