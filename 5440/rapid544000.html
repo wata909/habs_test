@@ -80,10 +80,12 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5440/geojso
 	);
 var map = L.map('map', 
           {
-          center: [35.686302, 139.776306],
-          zoom: 9,
+//          center: [35.686302, 139.776306],
+          center :[rapidgj.getCenter()],
+	  zoom: 9,
           maxZoom: 16,
           layers: [gsi_tile,rapidgj]});
+	
 var baseMaps = {
     "GSI standard Tile": gsi_tile,
     "The Rapid Survay Maps": habs
