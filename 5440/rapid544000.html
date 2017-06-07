@@ -96,8 +96,8 @@ var overlayMaps = {
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-var geodata = JSON.parse(rapidgj);
-var geolayer = L.geoJson(geodata});
+var geodata = JSON.parse("http://wata909.github.io/habs_test/5440/geojson/rapid544000.geojson");
+var geolayer = L.geoJson(geodata);
 map.fitBounds(geolayer.getBounds());
 
 </script>
