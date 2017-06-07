@@ -86,10 +86,10 @@ var rapidgj = new L.GeoJSON.AJAX("http://wata909.github.io/habs_test/5440/geojso
 
 var map = L.map('map', 
           {
-          center: [35.686302, 139.776306],
-          zoom: 9,
           maxZoom: 16,
           layers: [gsi_tile,rapidgj]});
+
+map.fitBounds(rapidgj.getBounds());
 
 var baseMaps = {
     "GSI standard Tile": gsi_tile,
