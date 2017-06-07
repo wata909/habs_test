@@ -89,7 +89,7 @@ var map = L.map('map',
           center: [35.686302, 139.776306],
           zoom: 9,
           maxZoom: 16,
-          layers: gsi_tile});
+          layers: [gsi_tile,rapidgj]});
 
 var baseMaps = {
     "GSI standard Tile": gsi_tile,
@@ -102,8 +102,6 @@ var overlayMaps = {
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-rapidgj.addTo(map);
-map.fitBounds(rapidgj.getBounds());
 	
 
 
