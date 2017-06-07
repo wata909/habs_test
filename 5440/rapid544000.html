@@ -96,7 +96,9 @@ var overlayMaps = {
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-map.fitBounds(rapidgj.getBounds());
+var geodata = JSON.parse(rapidgj);
+var geolayer = L.geoJson(geodata});
+map.fitBounds(geolayer.getBounds());
 
 </script>
 </body>
